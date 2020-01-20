@@ -13,25 +13,12 @@ public class persona {
     
     String nombre;
     String apellido;
-    int cedula;
+    String cedula;
     int edad;
     int telefono;
     String direccion;
     char genero;
     boolean estadoCivil;
-    
-    
-    public persona(String nombre, String apellido, int cedula, int edad, int telefono, String direccion, char genero, boolean estadoCivil) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.cedula = cedula;
-        this.edad = edad;
-        this.telefono = telefono;
-        this.direccion = direccion;
-        this.genero = genero;
-        this.estadoCivil = estadoCivil;
-    }
-    
 
     public String getNombre() {
         return nombre;
@@ -49,11 +36,11 @@ public class persona {
         this.apellido = apellido;
     }
 
-    public int getCedula() {
+    public String getCedula() {
         return cedula;
     }
 
-    public void setCedula(int cedula) {
+    public void setCedula(String cedula) {
         this.cedula = cedula;
     }
 
@@ -97,11 +84,21 @@ public class persona {
         this.estadoCivil = estadoCivil;
     }
 
+    public persona(String nombre, String apellido, String cedula, int edad, int telefono, String direccion, char genero, boolean estadoCivil) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.cedula = cedula;
+        this.edad = edad;
+        this.telefono = telefono;
+        this.direccion = direccion;
+        this.genero = genero;
+        this.estadoCivil = estadoCivil;
+    }
+
     @Override
     public String toString() {
         return "persona{" + "nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", edad=" + edad + ", telefono=" + telefono + ", direccion=" + direccion + ", genero=" + genero + ", estadoCivil=" + estadoCivil + '}';
     }
-
-   
+    
 }
 
