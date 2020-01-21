@@ -28,7 +28,6 @@ public class user {
             System.out.println(listaPersonas.get(i));
             lista += listaPersonas.get(i).toString()+ "\n";
         }
-        listaPersonas.get(1);
             return lista;
         
     }

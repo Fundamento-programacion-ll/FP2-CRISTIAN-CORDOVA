@@ -21,7 +21,7 @@ public class usuario {
         do{
         switch(opcion){
             case 1: 
-                String nombre=JOptionPane.showInputDialog(null,"Ingrese un  nombre");
+                String nombre=JOptionPane.showInputDialog(null,"Ingrese un nombre");
                 metodos.agregarPersona(nombre);
                 System.out.println(metodos.listaPersona());
                 break;
@@ -32,7 +32,7 @@ public class usuario {
                 opcion=3;
                 break;
             default:
-                opcion=3;
+             //   opcion=3;
                 break;
         }
         }while(opcion !=3);

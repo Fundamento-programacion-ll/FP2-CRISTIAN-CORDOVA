@@ -26,8 +26,8 @@ public class MVC_1 {
         int resta=0;
         
          
-            persona cristian = new persona ("cristian","cordova","",0,"22222", "la 41", 'm', true);
-            System.out.println(cristian);
+            persona cristian = new persona ("cristian","cordova","1726233164",22,"22222", "la 41", 'm', true);
+//            System.out.println(cristian);
             inicio.menu();
         
     }

@@ -97,7 +97,7 @@ public class persona {
 
     @Override
     public String toString() {
-        return "persona{" + "nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", edad=" + edad + ", telefono=" + telefono + ", direccion=" + direccion + ", genero=" + genero + ", estadoCivil=" + estadoCivil + '}';
+        return "persona{" + "nombre=" + nombre +'}';
     }
 
     
