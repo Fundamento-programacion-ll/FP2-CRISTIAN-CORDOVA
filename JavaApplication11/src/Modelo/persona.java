@@ -15,10 +15,21 @@ public class persona {
     String apellido;
     String cedula;
     int edad;
-    int telefono;
+    String telefono;
     String direccion;
     char genero;
     boolean estadoCivil;
+
+    public persona(String nombre, String apellido, String cedula, int edad, String telefono, String direccion, char genero, boolean estadoCivil) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.cedula = cedula;
+        this.edad = edad;
+        this.telefono = telefono;
+        this.direccion = direccion;
+        this.genero = genero;
+        this.estadoCivil = estadoCivil;
+    }
 
     public String getNombre() {
         return nombre;
@@ -52,11 +63,11 @@ public class persona {
         this.edad = edad;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -84,21 +95,12 @@ public class persona {
         this.estadoCivil = estadoCivil;
     }
 
-    public persona(String nombre, String apellido, String cedula, int edad, int telefono, String direccion, char genero, boolean estadoCivil) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.cedula = cedula;
-        this.edad = edad;
-        this.telefono = telefono;
-        this.direccion = direccion;
-        this.genero = genero;
-        this.estadoCivil = estadoCivil;
-    }
-
     @Override
     public String toString() {
         return "persona{" + "nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", edad=" + edad + ", telefono=" + telefono + ", direccion=" + direccion + ", genero=" + genero + ", estadoCivil=" + estadoCivil + '}';
     }
+
+    
     
 }
 

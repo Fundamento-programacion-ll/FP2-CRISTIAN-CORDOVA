@@ -6,6 +6,7 @@
 package MVC;
 
 import Modelo.persona;
+import Vista.usuario;
 import java.util.Scanner;
 
 
@@ -16,6 +17,7 @@ import java.util.Scanner;
 public class MVC_1 {
     
     public static void main(String[] args) {
+        usuario inicio= new usuario();
         
         String cedula;
         int c;
@@ -47,10 +49,11 @@ public class MVC_1 {
         int ultimo=Integer.parseInt(cedula.charAt(9)+"");
         
         if(ultimo==resta){
-            persona cristian = new persona ("cristian","cordova",cedula,0,0, "la 41", 'm', true);
+            persona cristian = new persona ("cristian","cordova",cedula,0,"22222", "la 41", 'm', true);
         
             System.out.println(cristian);
             System.err.println("cedula correcta");
+            inicio.menu();
         }else {
                
         System.out.println("cedula incorrecta");
