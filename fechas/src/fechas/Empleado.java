@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class Empleado {
     
+    
     String [] nombre,apellidos;
     int []salario;
     int [] fecha_ingreso, fecha_nacimiento;
@@ -69,13 +70,15 @@ public class Empleado {
     }
     
     public void ingresarempleados (int numempleados){
-    
+        
         String [] nom = new String[numempleados];
         String [] ape = new String[numempleados];
         int [] salario = new int[numempleados];
         int [] feching = new int[numempleados];
         int [] fechnac = new int[numempleados];
+             
         double acum=0;
+        double acum2=0;
         
         for (int i = 0; i < numempleados; i++) {
             nom [i] = JOptionPane.showInputDialog(null,(i+1)+". "+"Ingrese el Nombre del empleado: ");
@@ -91,12 +94,27 @@ public class Empleado {
                 acum=salario[i];
             }
         }
-        ////////////////////////////////////////////////////
+        ////////////////////trabajador mas antiguo///////////////////////
+        
+        acum2=feching[1];
+        for (int i=0;i<numempleados;i++){
+            if (feching[i]>acum2){
+                acum2=feching[i];
+            }
+        }
+        
+        /////////////////////////////////////////////////////////////////
          for (int i = 0; i < numempleados; i++) {
             System.out.println("Empleado "+(i+1)+". "+"Nombre: "+nom[i]+" Apellido: "+ape[i]+" Salario: "+ salario[i]+" Fecha de Ingreso: "+ feching[i]+" Fecha de Nacimiento: "+fechnac[i]+"\n");
+        }   
+        //////////////////////////////////////////////////////////////// 
+         for (int i = 0; i < numempleados; i++) {
             
             if (salario[i]==acum){
-                System.out.println("El salario mayor es: "+acum+ " del trabajador(a): "+nom [i]+" "+ape[i]);
+                System.out.println("El salario mayor es: "+acum+ " del trabajador(a): "+nom [i]+" "+ape[i]);   
+            }
+            if(feching[i]< acum2){
+                System.out.println("El trabajador mas antigo es: "+nom[i]+" "+ape[i]);
             }
         }   
         
