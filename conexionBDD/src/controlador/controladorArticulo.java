@@ -28,7 +28,7 @@ public class controladorArticulo {
             ps = conexion.getConxion().prepareStatement(sqlInsert);
             ps.setString(1,nuevoArticulo.getNombre());
             ps.setString(2, nuevoArticulo.getDescripcion());
-            ps.setFloat(3, nuevoArticulo.getPrecio());
+            ps.setDouble(3, nuevoArticulo.getPrecio());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null,"Datos ingresados correctamente");
         } catch (SQLException ex) {

@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  * @author crist
  */
 public class ConexionBDD {
-/*   
+    
     public static void main(String[] args) {
         // TODO code application logic here
         PreparedStatement ps = null;
@@ -34,11 +34,24 @@ public class ConexionBDD {
         try {
             ps = stringConexion
                     .getConxion()
-                    .prepareStatement(select);
+                    .prepareStatement(insert);
+            ps.setString(1, "X box");
+            ps.setString(2, "Consola juegos");
+            ps.setInt(3, 500);
+            ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ConexionBDD.class.getName()).log(Level.SEVERE, null, ex);
-        }   
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
     }
-    */ 
+    
 }

@@ -12,7 +12,7 @@ package modelo;
 public class articulo {
     String nombre;
     String descripcion;
-    Float precio;
+    double precio;
 
     public articulo() {
     }
@@ -33,14 +33,13 @@ public class articulo {
         this.descripcion = descripcion;
     }
 
-    public Float getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(Float precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
-
     
     
 }

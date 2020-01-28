@@ -169,11 +169,10 @@ public class producto extends javax.swing.JFrame {
        nuevoArticulo.setNombre(txt_nombre.getText());
        nuevoArticulo.setDescripcion(txt_descripcion.getText());
        nuevoArticulo.setNombre(txt_nombre.getText());
-       float precio = 0;
-       precio = Float.parseFloat(txt_precio.getText());
+       double precio = 0;
+       precio = Double.parseDouble(txt_precio.getText());
        nuevoArticulo.setPrecio(precio);
      
-       articulocontrolador.ingresarArticulos(nuevoArticulo);
     }//GEN-LAST:event_bot_agregarActionPerformed
 
     private void bot_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bot_limpiarActionPerformed
