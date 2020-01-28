@@ -22,19 +22,23 @@ public class controladorArticulo {
     PreparedStatement ps = null;
     
     public void ingresarArticulos(articulo nuevoArticulo){
-        String sqlInsert = "insert into articulos(nombre,descripcion,precio) values(?,?,?)";
+        String sqlInsert = "insert into articulos (nombre,descripcion,precio) values (?,?,?)";
         try {
             //Error porque necesita un try-cath
             ps = conexion.getConxion().prepareStatement(sqlInsert);
             ps.setString(1,nuevoArticulo.getNombre());
             ps.setString(2, nuevoArticulo.getDescripcion());
-            ps.setDouble(3, nuevoArticulo.getPrecio());
+            ps.setFloat(3, nuevoArticulo.getPrecio());
             ps.executeUpdate();
+            
             JOptionPane.showMessageDialog(null,"Datos ingresados correctamente");
+            
         } catch (SQLException ex) {
+            
             System.err.println("error: "+ex);
+            
             JOptionPane.showMessageDialog(null,"Los datos no fueron ingresados correctamente");
-            Logger.getLogger(controladorArticulo.class.getName()).log(Level.SEVERE, null, ex);
+           
         }
     }
 }
