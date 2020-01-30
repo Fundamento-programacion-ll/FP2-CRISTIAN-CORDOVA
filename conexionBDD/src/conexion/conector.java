@@ -17,7 +17,7 @@ public class conector {
     
     Connection conexion;
     
-    String url = "jdbc:mysql://localhost:32771/prueba?useSSL=false";
+    String url = "jdbc:mysql://localhost:32769/prueba?useSSL=false";
     String usuario = "admin";
     String pasword = "12345678";
     

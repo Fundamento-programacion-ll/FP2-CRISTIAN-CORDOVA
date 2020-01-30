@@ -12,18 +12,36 @@ package vista;
 
 
 import controlador.controladorArticulo;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelo.articulo;
 
 public class producto extends javax.swing.JFrame {
     
     articulo nuevoArticulo = new articulo();
     controladorArticulo articulocontrolador = new controladorArticulo();
+    ArrayList<articulo> listaNombres = null;
 
     /**
      * Creates new form producto
      */
     public producto() {
         initComponents();
+        bot_modificar.setVisible(false);
+        
+        cmb_nombres.addItem("asdasd");
+        cmb_nombres.addItem("OPCION NUEVA");        
+        try {
+            System.out.println("Imprimir Lista");
+            listaNombres = articulocontrolador.obtenerDatos();
+            for (articulo art : listaNombres) {            
+            cmb_nombres.addItem(art.getNombre());
+        }            
+        } catch (SQLException ex) {
+            Logger.getLogger(producto.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -47,7 +65,7 @@ public class producto extends javax.swing.JFrame {
         txt_nombre = new javax.swing.JTextField();
         txtprec = new javax.swing.JTextField();
         bot_modificar = new javax.swing.JButton();
-        bot_actualizar = new javax.swing.JButton();
+        cmb_nombres = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,7 +109,11 @@ public class producto extends javax.swing.JFrame {
             }
         });
 
-        bot_actualizar.setText("Actualizar");
+        cmb_nombres.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmb_nombresItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -128,16 +150,18 @@ public class producto extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(bot_modificar)
-                    .addComponent(bot_actualizar)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(bot_modificar, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                    .addComponent(cmb_nombres, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jLabel1)
-                .addGap(161, 161, 161)
+                .addGap(39, 39, 39)
+                .addComponent(cmb_nombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(102, 102, 102)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtprec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Jlabel_1))
@@ -150,10 +174,7 @@ public class producto extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(bot_modificar)
-                                .addGap(18, 18, 18)
-                                .addComponent(bot_actualizar)))
+                            .addComponent(bot_modificar))
                         .addGap(45, 45, 45)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(bot_agregar)
@@ -188,6 +209,15 @@ public class producto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_nombreActionPerformed
 
+    
+    private void listarNombres (){
+       
+       cmb_nombres.addItem(nuevoArticulo.getNombre());
+        
+    }
+    
+    
+    
     private void bot_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bot_agregarActionPerformed
        nuevoArticulo.setNombre(txt_nombre.getText());
        nuevoArticulo.setDescripcion(txt_descripcion.getText());
@@ -206,11 +236,54 @@ public class producto extends javax.swing.JFrame {
         txtprec.setText("");
         txt_descripcion.setText("");
         
+        
+        
     }//GEN-LAST:event_bot_limpiarActionPerformed
 
     private void bot_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bot_modificarActionPerformed
-        // TODO add your handling code here:
+        
+        
+       nuevoArticulo.setNombre(txt_nombre.getText());
+       nuevoArticulo.setDescripcion(txt_descripcion.getText());
+       
+       float precio = 0;
+       precio = Float.parseFloat(txtprec.getText());
+       nuevoArticulo.setPrecio(precio);
+       
+       articulocontrolador.ModificarDatos(nuevoArticulo);
+        
+        
     }//GEN-LAST:event_bot_modificarActionPerformed
+
+    private void cmb_nombresItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmb_nombresItemStateChanged
+        // TODO add your handling code here:
+        
+        if (evt.getStateChange() == 1){
+            System.out.println(evt.getItem().toString());
+            
+           txt_nombre.setText(evt.getItem().toString());
+        }
+        
+        if (evt.getStateChange() == 1) {
+            System.out.println(evt.getItem().toString());
+            try {
+                listaNombres = articulocontrolador.obtenerDatos();
+                for (articulo art : listaNombres) {
+                    if (art.getNombre().equals(evt.getItem().toString())) {
+                        bot_modificar.setVisible(true);
+                        txt_nombre.setText(art.getNombre());
+                        txt_descripcion.setText(art.getDescripcion());
+                        txtprec.setText(String.valueOf(art.getPrecio()));
+                    }                    
+                }                
+                        
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(producto.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+    }//GEN-LAST:event_cmb_nombresItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -249,10 +322,10 @@ public class producto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Jlabel_1;
-    private javax.swing.JButton bot_actualizar;
     private javax.swing.JButton bot_agregar;
     private javax.swing.JButton bot_limpiar;
     private javax.swing.JButton bot_modificar;
+    private javax.swing.JComboBox<String> cmb_nombres;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

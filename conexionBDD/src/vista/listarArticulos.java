@@ -95,6 +95,9 @@ public class listarArticulos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+   
+    
+    
     private void bot_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bot_buscarActionPerformed
         
         String item = cmb_buscar.getSelectedItem().toString();

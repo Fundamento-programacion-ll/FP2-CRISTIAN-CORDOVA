@@ -9,6 +9,7 @@ import conexion.conector;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -22,6 +23,7 @@ public class controladorArticulo {
     conector conexion = new conector();
     PreparedStatement ps = null;
     ResultSet rs = null;
+    
     public void ingresarArticulos(articulo nuevoArticulo){
         String sqlInsert = "insert into articulos (nombre,descripcion,precio) values (?,?,?)";
         try {
@@ -92,8 +94,28 @@ public class controladorArticulo {
         }
     }
         
+        
+        
+    public ArrayList obtenerDatos() throws SQLException{
+        ArrayList<articulo> listaNombres = new ArrayList<>();        
+        String selectDatos = "select * from articulos";
+        ps = conexion.getConxion().prepareStatement(selectDatos);
+        rs = ps.executeQuery();        
+        while (rs.next()) {            
+            articulo art = new articulo();
+            art.setNombre(rs.getString(2));
+            art.setDescripcion(rs.getString(3));
+            art.setPrecio(rs.getInt(4));
+            listaNombres.add(art);
+        }
+        return listaNombres;
+    }
+        
+    
+        
+        
         ////////////////////////////////////////////////////////////////////////
-         public void ModificarDatos(articulo modificarArticulo){
+    public void ModificarDatos(articulo modificarArticulo){
              String sqlModificar = "UPDATE articulos SET  nombre=?, descripcion=?, precio=?" + " WHERE id_articulo=?";
         try {
             //Error porque necesita un try-cath
@@ -103,16 +125,22 @@ public class controladorArticulo {
             ps.setFloat(3, modificarArticulo.getPrecio());
             ps.executeUpdate();
             
-            JOptionPane.showMessageDialog(null,"Datos ingresados correctamente");
+            JOptionPane.showMessageDialog(null,"Datos actualizados correctamente");
             
         } catch (SQLException ex) {
             
             System.err.println("error: "+ex);
             
-            JOptionPane.showMessageDialog(null,"Los datos no fueron ingresados correctamente");
+            JOptionPane.showMessageDialog(null,"Los datos no fueron actualizados correctamente");
            
         }
          }
+    
+    public void EliminarDatos (){
+        
+        
+        
+    }
     
     
 }
