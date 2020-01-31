@@ -136,11 +136,20 @@ public class controladorArticulo {
         }
          }
     
-    public void EliminarDatos (){
+    public void EliminarDatos (String nom){
         
+        String sqlEliminar = "DELETE FROM articulo WHERE nombre = ?";
         
-        
-    }
+        try {
+            ps = conexion.getConxion().prepareStatement(sqlEliminar);
+            ps.setString(2,nom);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(controladorArticulo.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+            
+        }  
+    
     
     
 }

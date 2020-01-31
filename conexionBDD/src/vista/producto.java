@@ -66,6 +66,7 @@ public class producto extends javax.swing.JFrame {
         txtprec = new javax.swing.JTextField();
         bot_modificar = new javax.swing.JButton();
         cmb_nombres = new javax.swing.JComboBox<>();
+        bot_eliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -115,6 +116,13 @@ public class producto extends javax.swing.JFrame {
             }
         });
 
+        bot_eliminar.setText("Eliminar");
+        bot_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bot_eliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -152,7 +160,8 @@ public class producto extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(bot_modificar, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
-                    .addComponent(cmb_nombres, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(cmb_nombres, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bot_eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,7 +183,10 @@ public class producto extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bot_modificar))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(bot_modificar)
+                                .addGap(18, 18, 18)
+                                .addComponent(bot_eliminar)))
                         .addGap(45, 45, 45)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(bot_agregar)
@@ -276,7 +288,7 @@ public class producto extends javax.swing.JFrame {
                         txtprec.setText(String.valueOf(art.getPrecio()));
                     }                    
                 }                
-                        
+                
                 
             } catch (SQLException ex) {
                 Logger.getLogger(producto.class.getName()).log(Level.SEVERE, null, ex);
@@ -284,6 +296,12 @@ public class producto extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_cmb_nombresItemStateChanged
+
+    private void bot_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bot_eliminarActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_bot_eliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -323,6 +341,7 @@ public class producto extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Jlabel_1;
     private javax.swing.JButton bot_agregar;
+    private javax.swing.JButton bot_eliminar;
     private javax.swing.JButton bot_limpiar;
     private javax.swing.JButton bot_modificar;
     private javax.swing.JComboBox<String> cmb_nombres;
