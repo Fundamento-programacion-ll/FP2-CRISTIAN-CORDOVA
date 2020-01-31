@@ -298,8 +298,10 @@ public class producto extends javax.swing.JFrame {
     }//GEN-LAST:event_cmb_nombresItemStateChanged
 
     private void bot_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bot_eliminarActionPerformed
+        String nom = null;
         // TODO add your handling code here:
         
+        articulocontrolador.EliminarDatos(nom);
         
     }//GEN-LAST:event_bot_eliminarActionPerformed
 

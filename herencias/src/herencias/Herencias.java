@@ -20,7 +20,7 @@ public class Herencias {
         Perro perrito = new Perro (10, "perro", "masculino", "Dogy",5);
         perrito.datosPerro();
         
-        Gato gatito =  new Gato (7,"mimi");
+        Gato gatito =  new Gato (7,"mimi","","","",3);
         gatito.datosGato();
     }
     
