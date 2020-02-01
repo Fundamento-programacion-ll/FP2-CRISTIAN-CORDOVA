@@ -39,7 +39,29 @@ public class Tringulo extends Dimensiones{
     
     
     public void area (){
+        System.out.println("--------------------------------");
+        System.out.println("Selecciono el Area del triangulo");
+        System.out.println("Su base es: "+getBase());
+        System.out.println("Su altura es: "+getAltura());
+        System.out.println("Resultado del area: "+areatriangulo(getBase(),getAltura()));
         
+    }
+    
+    
+    
+    public void volumen (){
+        System.out.println("--------------------------------");
+        System.out.println("Selecciono el Volumen del triangulo");
+        System.out.println("Su base es: "+getBase());
+        System.out.println("Su altura es: "+getAltura());
+        System.out.println("Resultado del volumen: "+volumentriangulo(getBase(), getAltura()));
+    }
+    
+    public void perimetro (){
+        System.out.println("--------------------------------");
+        System.out.println("Selecciono el Perimetro del triangulo");
+        System.out.println("Sus 3 lados son: "+getLado());
+        System.out.println("Resultado del perimetro: "+perimetrotriangulo(getLado()));
     }
     
     
@@ -55,6 +77,9 @@ public class Tringulo extends Dimensiones{
         this.area = area;
         this.volumen = volumen;
         this.perimetro = perimetro;
+    }
+
+    public Tringulo() {
     }
     
     

@@ -26,6 +26,9 @@ public class Perro extends animal{
         System.out.println(suma(1, 2));
 }
     
+      public int sumaPerro(int n1, int n2){
+        return suma(n1, n2);
+    }
     
     public Perro(float estatura, String especie, String genero, String nombre, int edad) {
         super(especie, genero, nombre, edad);

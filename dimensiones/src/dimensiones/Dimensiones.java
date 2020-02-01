@@ -47,9 +47,28 @@ public class Dimensiones {
 
     public Dimensiones() {
     }
-    
-     public int areatriangulo (int num1, int num2){
-        return num1 + num2;
+    /////////////////TRIANGULO/////////////////////
+     public int areatriangulo (int base, int altura){
+        return (base*altura)/2;
     }
-    
+     
+     public int volumentriangulo (int base, int altura){
+        return (base*base)*altura/3;
+    }
+     
+     public int perimetrotriangulo (int lado){
+        return 3*lado;
+    }
+    //////////////////Cuadrado/////////////////////
+    public int areacuadrado (int lado){
+        return lado*lado;
+    }
+     
+     public int volumencuadrado (int lado){
+        return lado*lado*lado;
+    }
+     
+     public int perimetrocuadrado (int lado){
+        return 4*lado;
+    } 
 }
