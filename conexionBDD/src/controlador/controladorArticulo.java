@@ -15,6 +15,8 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.articulo;
 
+
+
 /**
  *
  * @author crist
@@ -116,36 +118,37 @@ public class controladorArticulo {
         
         ////////////////////////////////////////////////////////////////////////
     public void ModificarDatos(articulo modificarArticulo){
-             String sqlModificar = "UPDATE articulos SET  nombre=?, descripcion=?, precio=?" + " WHERE id_articulo=?";
-        try {
-            //Error porque necesita un try-cath
-            ps = conexion.getConxion().prepareStatement(sqlModificar);
-            ps.setString(1,modificarArticulo.getNombre());
-            ps.setString(2, modificarArticulo.getDescripcion());
-            ps.setFloat(3, modificarArticulo.getPrecio());
-            ps.executeUpdate();
-            
+             String sqlUpdate= "UPDATE articulos SET  nombre=?, descripcion=?, precio=?" + " WHERE id_articulo=?";
+        
+            try {
+                ps=conexion.getConxion().prepareStatement(sqlUpdate);
+                ps.setInt(4, 2);
+                ps.setString(1,modificarArticulo.getNombre());
+                ps.setString(2, modificarArticulo.getDescripcion());
+                ps.setFloat(3, modificarArticulo.getPrecio());
+                System.out.println(""+modificarArticulo.getNombre());
+                System.out.println(""+modificarArticulo.getDescripcion());
+                System.out.println(""+modificarArticulo.getPrecio());
+                ps.executeUpdate();
             JOptionPane.showMessageDialog(null,"Datos actualizados correctamente");
-            
-        } catch (SQLException ex) {
-            
-            System.err.println("error: "+ex);
-            
-            JOptionPane.showMessageDialog(null,"Los datos no fueron actualizados correctamente");
-           
-        }
+            } catch (SQLException ex) {
+                System.out.println(""+ex);
+                JOptionPane.showMessageDialog(null,"No se pudieron actualizar los datos");
+            }
          }
     
-    public void EliminarDatos (String nom){
+    public void EliminarDatos (){
         
-        String sqlEliminar = "DELETE FROM articulo WHERE nombre = ?";
+        String sqlEliminar = "DELETE FROM articulos WHERE id_articulo=?";
         
         try {
             ps = conexion.getConxion().prepareStatement(sqlEliminar);
-            ps.setString(2,nom);
+            ps.setString(1,"ps4");
             ps.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Datos Eliminado correctamente");
         } catch (SQLException ex) {
             Logger.getLogger(controladorArticulo.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,"No se puede eliminar");
         } 
             
         }  

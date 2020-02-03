@@ -5,18 +5,20 @@
  */
 package vista;
 
-/**
- *
- * @author crist
- */
-
-
 import controlador.controladorArticulo;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.articulo;
+
+/**
+ *
+ * @author crist
+ */
+
+
+
 
 public class producto extends javax.swing.JFrame {
     
@@ -220,14 +222,7 @@ public class producto extends javax.swing.JFrame {
     private void txt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_nombreActionPerformed
-
-    
-    private void listarNombres (){
-       
-       cmb_nombres.addItem(nuevoArticulo.getNombre());
-        
-    }
-    
+  
     
     
     private void bot_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bot_agregarActionPerformed
@@ -298,10 +293,10 @@ public class producto extends javax.swing.JFrame {
     }//GEN-LAST:event_cmb_nombresItemStateChanged
 
     private void bot_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bot_eliminarActionPerformed
-        String nom = null;
+      
         // TODO add your handling code here:
         
-        articulocontrolador.EliminarDatos(nom);
+        articulocontrolador.EliminarDatos();
         
     }//GEN-LAST:event_bot_eliminarActionPerformed
 
