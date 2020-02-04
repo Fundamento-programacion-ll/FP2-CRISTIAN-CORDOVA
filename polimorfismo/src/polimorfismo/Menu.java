@@ -5,6 +5,8 @@
  */
 package polimorfismo;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author crist
@@ -17,28 +19,58 @@ public class Menu {
     public static void main(String[] args) {
         // TODO code application logic here
         
+        int cuenta;
+        String mensaje;
+        double retir, depo, sald,total;
         
-        SolicitudSaldo a=new SolicitudSaldo(400, 1726233164);
+        SolicitudSaldo sa = new SolicitudSaldo();    
+        Deposito de = new Deposito();
+        Retiros re = new Retiros();
+        
+        
+        cuenta=Integer.parseInt(JOptionPane.showInputDialog("--------Menu---------"+"\nIngrese su numenro de cuenta"));
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////
+        do{
+        sald = Double.parseDouble(JOptionPane.showInputDialog("Ingrese Su saldo"));   
+        
+        if(sald <= 0){
+            JOptionPane.showMessageDialog(null, "cantidad negativa o cero incorrecto"+"\n Intente nuevamente");
+        }
+        }while (sald <=0);
+                
+        do {
+       //////////////////////////////////////////////////////////////////////////////////////////////////////
+         retir = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el retiro que va hacer"));
+        if (retir >70){
+            JOptionPane.showMessageDialog(null, "Maximo de retiro hata 70");
+        }else if (retir <=0 ){
+             JOptionPane.showMessageDialog(null, "cantidad negativa o  cero incorrecto"+"\n Intente nuevamente");
+        }         
+        }while(retir <= 0 || retir>=71);
+        /////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        do{
+        depo = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el Deposito que va hacer"));  
+        
+        if(depo <= 0){
+            JOptionPane.showMessageDialog(null, "cantidad negativa o cero incorrecto"+"\n Intente nuevamente");
+        }
+        }while (depo <=0);
+        
+        total=sald+depo-retir;
+        
+        SolicitudSaldo a=new SolicitudSaldo(sald, cuenta);
         System.out.println(a);
         
-        Retiros b=new Retiros(100, 1726233164);
+        Retiros b=new Retiros(retir, cuenta);
         System.out.println(b);
         
-        Deposito c=new  Deposito(500, 1726233164);
+        Deposito c=new  Deposito(depo, cuenta);
         System.out.println(c);
         
-        totalsaldo();
-    }
-    
-    
-    
-    
-    
-    public static void totalsaldo (){        
-        double total;
-        total=400+500-100;
-        System.out.println("El saldo total que tiene es de: "+total);
         
+        System.out.println("Su total de saldo es: "+total);
     }
     
 }
+        
