@@ -13,6 +13,7 @@ import java.awt.Graphics;
  * @author crist
  */
 public class Circulo extends Punto{
+    static final double pi=3.14;
     private int radio;
 
     public int getRadio() {
@@ -37,16 +38,19 @@ public class Circulo extends Punto{
     }
     
     
-    public void dibujo(Graphics g){
+    public void paint(Graphics g){
         g.setColor(Color.RED);
         g.drawOval(super.getX(),getY(), this.radio, this.radio);
+        
     }
 
-    
+    public double area (){
+        return pi*getRadio();
+    }
 
     @Override
     public String toString() {
-        return "El radio es:"+this.radio;
+        return "El radio del circulo es:"+this.radio+" El area del circulo"+this.area()+" punto x= "+getX()+" Punto y= "+getY();
     }
 
     

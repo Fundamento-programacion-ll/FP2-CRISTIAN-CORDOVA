@@ -52,14 +52,20 @@ public class Punto extends Figura {
     
     
     @Override
-    public void dibujo(Graphics g) {
+    public void paint(Graphics g) {
         g.setColor(Color.blue);
-        g.fillOval(this.x, this.y, 10, 10);
+        g.fillOval(this.x, this.y, 20, 20);
+        
     }
 
     @Override
     public String toString() {
         return "puntos: [ x = "+this.x+", y = "+this.y+" ]";
+    }
+
+    @Override
+    public double area() {
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

@@ -5,14 +5,16 @@
  */
 package polimorfismo2;
 
+import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.GraphicsConfiguration;
 
 /**
  *
  * @author crist
  */
-public class Cilindro extends Circulo {
+public class Cilindro extends Canvas {
     private int altura;
 
     public int getAltura() {
@@ -23,34 +25,36 @@ public class Cilindro extends Circulo {
         this.altura = altura;
     }
 
-    public Cilindro(int altura, int radio, int x, int y) {
-        super(radio, x, y);
-        this.altura = altura;
-    }
-
-    public Cilindro(int altura, int radio) {
-        super(radio);
-        this.altura = altura;
-    }
-
     public Cilindro(int altura) {
         this.altura = altura;
     }
+
+    public Cilindro(int altura, GraphicsConfiguration gc) {
+        super(gc);
+        this.altura = altura;
+    }
+
+   
 
     public Cilindro() {
     }
 
     
-    public void dibujo(Graphics g){
+    public void paint(Graphics g){
         g.setColor(Color.GREEN);
-        g.drawOval(super.getX(),getY(),getRadio(), getRadio());
+        g.drawOval(super.getX(), super.getX(),20,20);
+        g.drawLine(super.getX(), super.getX(), 5, 40);
+        g.drawLine(super.getX(), super.getX(), 5, 40);
+        g.drawOval(super.getX(), super.getX(),20,20);
+        
+        
        
         
     }
     
     @Override
     public String toString() {
-        return "Cilindro="+this.altura;
+        return "Cilindro="+this.altura+" punto x= "+getX()+" Punto y= "+getY();
     }
     
     

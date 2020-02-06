@@ -14,5 +14,8 @@ import javax.swing.JPanel;
  */
 public abstract class Figura extends JPanel{
     
-    public abstract void dibujo (Graphics g);
+    public abstract void paint (Graphics g);
+
+    public abstract double area ();
+    
 }
