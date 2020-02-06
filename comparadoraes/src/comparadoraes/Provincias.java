@@ -41,6 +41,8 @@ public class Provincias {
         super();
         String datosNombre;
         int datosHabitantes;
+        
+        
         datosNombre = JOptionPane.showInputDialog("ingrese el nombre de las provincia separados por ';'");
         datosHabitantes=Integer.parseInt(JOptionPane.showInputDialog("ingrese el numero de habitantes de esa privincia"));
         StringTokenizer tokens = new StringTokenizer(datosNombre, ";");

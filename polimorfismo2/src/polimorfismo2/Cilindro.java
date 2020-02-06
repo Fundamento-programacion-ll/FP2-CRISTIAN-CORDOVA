@@ -42,10 +42,10 @@ public class Cilindro extends Canvas {
     
     public void paint(Graphics g){
         g.setColor(Color.GREEN);
-        g.drawOval(super.getX(), super.getX(),20,20);
-        g.drawLine(super.getX(), super.getX(), 5, 40);
-        g.drawLine(super.getX(), super.getX(), 5, 40);
-        g.drawOval(super.getX(), super.getX(),20,20);
+        g.drawLine(100, 100, 100, this.altura);
+        g.drawLine(200, 100, 200, this.altura);
+        g.drawOval(100, 75, 100, 50);
+        g.drawOval(100, this.altura-25, 100, 50);
         
         
        
