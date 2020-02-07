@@ -38,16 +38,18 @@ public class Provincias {
     }
 
     public Provincias() {
-        super();
-        String datosNombre;
-        int datosHabitantes;
+        String datos;
         
+        datos = JOptionPane.showInputDialog(null, "Ingrese los datos separados por punto y coma");
+        StringTokenizer  tokens = new StringTokenizer(datos,";");
+        this.nombreProvincia = tokens.nextToken();
+        this.numeroHabitantes = Integer.parseInt(tokens.nextToken());        
+    }
         
-        datosNombre = JOptionPane.showInputDialog("ingrese el nombre de las provincia separados por ';'");
-        datosHabitantes=Integer.parseInt(JOptionPane.showInputDialog("ingrese el numero de habitantes de esa privincia"));
-        StringTokenizer tokens = new StringTokenizer(datosNombre, ";");
-        this.nombreProvincia=tokens.nextToken();
-        this.numeroHabitantes=datosHabitantes; 
+
+    @Override
+    public String toString() {
+        return "Nombre de la Provincia: "+nombreProvincia+" Numero de habitantes de la prvincia: "+numeroHabitantes;
     }
     
     
