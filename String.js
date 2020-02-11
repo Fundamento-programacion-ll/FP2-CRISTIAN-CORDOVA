@@ -34,9 +34,7 @@ console.log(ejemploTrim.toLowerCase());
 ejemploTrim === nombre;
 
 
-var palabra = "Esta definición concuerda incluso con ciertos ejemplos prácticos, que no son considerados dentro de la programación orientada a objetos, pero que podrían serlo. Por ejemplo, la programación"
-
-var palabra = 'Realiza fotografías de 20 megapíxeles y puede utilizar un perfil de color Dlog-M de 10 bits, con el que se obtiene un rango dinámico más amplio al registrar hasta mil millones de colores. Esto queda bastante por encima de los 16 millones de colores de los perfiles de 8 bits, pudiendo dejar más margen y libertad en la edición posterior del material. Por su parte, el Mavic 2 Zoom cuenta con un sensor CMOS de 1/2,3 pulgadas y zoom óptico, lo cual da nombre al propio producto. En este caso es capaz de realizar capturas de 12 megapíxeles, disponiendo un zoom automático híbrido (que combina detección de fase y contraste) de una función de "Superresolución" que recurre al zoom óptico para realizar nueve fotografías y componer una sola con todas ellas de 48 megapíxeles (con más detalle).'
+var palabra = "Lenguaje orirnetado a objetos; Esta definición concuerda incluso con ciertos ejemplos prácticos, que no son considerados dentro de la programación orientada a objetos, pero que podrían serlo. Por ejemplo, la programación"
 
 
 var arreglopalabra = palabra.split(" ");
@@ -55,19 +53,20 @@ arreglopalabra[final-1] = arreglopalabra[final-1].toLocaleUpperCase();
 
 var puntos = palabra.split(".");
 var comas = palabra.split(",");
+var puntoycoma = palabra.split(";");
 
 var contarPuntos = puntos.length - 1; 
 var contarComas = comas.length - 1;
+var contarpuntoycoma = puntoycoma.length - 1;
 
 var palabraCompleta = "";
 
 for (var i = 0; i < arreglopalabra.length; i++) {
-   
-    palabraCompleta =  palabraCompleta + arreglopalabra[i] + "*-*" ;
-   
+    palabraCompleta =  palabraCompleta + arreglopalabra[i] + "*-*" 
 }
 
 console.log(palabraCompleta);
-console.log("Total de Puntos: "+contarPuntos);
-console.log("Total de Comas: "+contarComas);
+console.log("el numeros de Puntos son: "+contarPuntos);
+console.log("el numero de Comas es: "+contarComas);
+console.log("el numero de dos puntos son: "+contarpuntoycoma);
 
