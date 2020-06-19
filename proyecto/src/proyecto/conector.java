@@ -3,21 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package conexion;
+package proyecto;
 
 import com.mysql.jdbc.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
+
 
 /**
  *
  * @author crist
  */
 public class conector {
-    
     Connection conexion;
     
-    String url = "jdbc:mysql://localhost:3306/prueba?useSSL=false";
+    String url = "jdbc:mysql://localhost:3306/proyecto?useSSL=false";
     String usuario = "cris";
     String pasword = "1234";
     
@@ -45,7 +46,5 @@ public class conector {
     public void Desconectars (){
         conexion=null;
     }
-    
-    
-    
+
 }

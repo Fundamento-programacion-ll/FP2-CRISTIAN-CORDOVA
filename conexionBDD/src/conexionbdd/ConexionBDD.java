@@ -36,7 +36,7 @@ public class ConexionBDD {
         String select =
             "select * "
             + "from articulos"
-                + " where idArticulo = ?";
+                + " where id = ?";
         
         try {
             ps = stringConexion

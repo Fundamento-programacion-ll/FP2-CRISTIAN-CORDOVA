@@ -53,9 +53,7 @@ public class controladorArticulo {
            int IdArticulo = Integer.parseInt(valorABuscar);
            String sqlSelectID = 
            "select * from articulos where id_articulo = ?";            
-                ps = conexion
-                        .getConxion()
-                        .prepareStatement(sqlSelectID);
+                ps = conexion.getConxion().prepareStatement(sqlSelectID);
                 ps.setInt(1, IdArticulo);
                 rs  = ps.executeQuery();
                 while (rs.next()) {                    
@@ -126,9 +124,6 @@ public class controladorArticulo {
                 ps.setString(1,modificarArticulo.getNombre());
                 ps.setString(2, modificarArticulo.getDescripcion());
                 ps.setFloat(3, modificarArticulo.getPrecio());
-                System.out.println(""+modificarArticulo.getNombre());
-                System.out.println(""+modificarArticulo.getDescripcion());
-                System.out.println(""+modificarArticulo.getPrecio());
                 ps.executeUpdate();
             JOptionPane.showMessageDialog(null,"Datos actualizados correctamente");
             } catch (SQLException ex) {
